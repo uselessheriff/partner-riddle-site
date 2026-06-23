@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#fbf9f7">
+    <meta name="description" content="Мини-загадка с маленьким сюрпризом.">
+    <title>Для тебя</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel panel-riddle" id="riddle-panel" aria-labelledby="page-title">
+        <div class="topline" id="progress-line" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="intro">
+          <p class="overline" id="site-overline"></p>
+          <h1 id="page-title"></h1>
+          <p class="riddle-text" id="riddle-text"></p>
+        </div>
+
+        <form class="answer-form" id="answer-form" autocomplete="off">
+          <label for="answer-input" id="answer-label"></label>
+          <div class="input-row">
+            <input
+              id="answer-input"
+              name="answer"
+              type="text"
+              inputmode="text"
+              enterkeyhint="done"
+              spellcheck="false"
+              aria-describedby="answer-message"
+            >
+            <button type="submit" id="submit-button"></button>
+          </div>
+          <p class="message" id="answer-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel panel-success" id="success-panel" aria-labelledby="success-title" hidden>
+        <div class="success-copy">
+          <p class="overline" id="success-overline"></p>
+          <h2 id="success-title"></h2>
+          <p id="success-text"></p>
+        </div>
+
+        <div class="photo-stack">
+          <figure class="photo-frame">
+            <img id="gift-photo" alt="">
+            <figcaption id="gift-caption"></figcaption>
+          </figure>
+
+          <figure class="photo-frame">
+            <img id="secret-photo" alt="">
+            <figcaption id="photo-caption"></figcaption>
+          </figure>
+        </div>
+
+        <p class="closing" id="closing-text"></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
