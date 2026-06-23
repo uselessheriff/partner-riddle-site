@@ -54,6 +54,7 @@ input {
 .panel {
   width: 100%;
   min-height: min(820px, calc(100svh - 28px));
+  position: relative;
   background: var(--surface);
   border: 1px solid rgba(222, 215, 208, 0.84);
   border-radius: 28px;
@@ -61,12 +62,22 @@ input {
   overflow: hidden;
 }
 
+.panel-preview {
+  padding: clamp(22px, 6vw, 36px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: clamp(18px, 4vh, 34px);
+}
+
+.panel-preview:not([hidden]) {
+  animation: reveal 420ms ease both;
+}
+
 .panel-riddle {
   padding: clamp(22px, 6vw, 36px);
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: clamp(26px, 8vh, 54px);
-  position: relative;
 }
 
 .panel-riddle.is-changing {
@@ -77,6 +88,9 @@ input {
   display: grid;
   justify-items: center;
   gap: 14px;
+  padding-inline: clamp(56px, 16vw, 76px);
+  position: relative;
+  z-index: 2;
 }
 
 .overline {
@@ -203,6 +217,53 @@ h1 {
 .tiny-ornament i {
   color: var(--rose);
   font-size: 1.02rem;
+}
+
+.preview-content {
+  align-self: center;
+  display: grid;
+  justify-items: center;
+  gap: clamp(14px, 3.6vh, 24px);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.preview-art {
+  width: min(100%, 340px);
+  margin-bottom: clamp(2px, 1vh, 8px);
+}
+
+.preview-art img {
+  width: 100%;
+  display: block;
+  mix-blend-mode: multiply;
+  animation: letterFloat 4.2s ease-in-out infinite;
+}
+
+.panel-preview h1 {
+  max-width: 13.4ch;
+  font-size: clamp(2.15rem, 10.4vw, 3.9rem);
+  line-height: 1.12;
+}
+
+#preview-text {
+  max-width: 25ch;
+  color: var(--text);
+  font-size: clamp(1.05rem, 4.6vw, 1.28rem);
+  line-height: 1.42;
+}
+
+.preview-heart {
+  color: var(--rose);
+  font-size: 1.7rem;
+  line-height: 1;
+  animation: heartFloat 3.4s ease-in-out infinite;
+}
+
+.start-button {
+  width: min(100%, 342px);
+  animation: buttonBreath 3.6s ease-in-out infinite;
 }
 
 .answer-form {
@@ -372,17 +433,20 @@ figcaption,
 }
 
 .pixel-cat {
+  --cat-size: 64px;
+  --cat-frames: 18;
+  --cat-sheet-width: calc(var(--cat-size) * var(--cat-frames));
   position: absolute;
-  right: 12px;
-  bottom: 8px;
-  width: 64px;
-  height: 64px;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  width: var(--cat-size);
+  height: var(--cat-size);
   background-image: url("assets/pixel-cat-sprite.png");
   background-repeat: no-repeat;
-  background-size: 256px 64px;
+  background-size: var(--cat-sheet-width) var(--cat-size);
   image-rendering: pixelated;
-  animation: catGroom 1.4s steps(4) infinite;
-  filter: drop-shadow(0 7px 0 rgba(42, 38, 35, 0.08));
+  animation: catStory 9s steps(18) infinite;
+  filter: drop-shadow(0 6px 0 rgba(42, 38, 35, 0.08));
   z-index: 3;
   pointer-events: none;
 }
@@ -391,9 +455,9 @@ figcaption,
   display: none !important;
 }
 
-@keyframes catGroom {
+@keyframes catStory {
   to {
-    background-position: -256px 0;
+    background-position: calc(var(--cat-sheet-width) * -1) 0;
   }
 }
 
@@ -431,6 +495,30 @@ figcaption,
   }
 }
 
+@keyframes letterFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.4deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(0.45deg);
+  }
+}
+
+@keyframes buttonBreath {
+  0%,
+  100% {
+    filter: saturate(1);
+    box-shadow: 0 12px 28px rgba(207, 122, 132, 0.22);
+  }
+
+  50% {
+    filter: saturate(1.06);
+    box-shadow: 0 18px 40px rgba(207, 122, 132, 0.28);
+  }
+}
+
 @keyframes stepChange {
   from {
     opacity: 0.92;
@@ -462,23 +550,28 @@ figcaption,
     padding-bottom: max(22px, calc(env(safe-area-inset-bottom) + 18px));
   }
 
+  .panel-preview {
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(22px, calc(env(safe-area-inset-bottom) + 18px));
+  }
+
   .panel-success {
     padding-top: max(24px, env(safe-area-inset-top));
-    padding-bottom: 88px;
+    padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 22px));
+  }
+
+  .screen-head {
+    padding-inline: 64px;
+  }
+
+  .preview-art {
+    width: min(100%, 322px);
   }
 
   .pixel-cat {
+    --cat-size: 58px;
+    top: max(10px, env(safe-area-inset-top));
     right: max(10px, env(safe-area-inset-right));
-    bottom: max(8px, env(safe-area-inset-bottom));
-    width: 56px;
-    height: 56px;
-    background-size: 224px 56px;
-  }
-
-  @keyframes catGroom {
-    to {
-      background-position: -224px 0;
-    }
   }
 }
 
@@ -488,8 +581,17 @@ figcaption,
   }
 
   .panel-riddle,
+  .panel-preview,
   .panel-success {
     padding-inline: 18px;
+  }
+
+  .screen-head {
+    padding-inline: 58px;
+  }
+
+  .pixel-cat {
+    --cat-size: 54px;
   }
 }
 

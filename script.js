@@ -1,5 +1,13 @@
 const SITE = {
   overline: "Для тебя",
+  preview: {
+    overline: "Для тебя",
+    title: "Маленький сладкий след",
+    text: "Открой, когда будешь готова",
+    buttonText: "Начать",
+    imageSrc: "assets/preview-letter.jpg",
+    imageAlt: "Письмо с сердцем и нежными веточками"
+  },
   riddles: [
     {
       title: "Загадка первая",
@@ -65,6 +73,9 @@ const SITE = {
   closing: "С праздником, любимая."
 };
 
+const previewPanel = document.querySelector("#preview-panel");
+const previewImage = document.querySelector("#preview-image");
+const startButton = document.querySelector("#start-button");
 const form = document.querySelector("#answer-form");
 const input = document.querySelector("#answer-input");
 const message = document.querySelector("#answer-message");
@@ -105,6 +116,16 @@ function isAcceptedAnswer(answer, acceptedAnswers) {
 
 function getCurrentRiddle() {
   return SITE.riddles[currentRiddleIndex];
+}
+
+function fillPreview() {
+  document.title = SITE.preview.overline;
+  document.querySelector("#preview-overline").textContent = SITE.preview.overline;
+  document.querySelector("#preview-title").textContent = SITE.preview.title;
+  document.querySelector("#preview-text").textContent = SITE.preview.text;
+  document.querySelector("#start-button").textContent = SITE.preview.buttonText;
+  previewImage.src = SITE.preview.imageSrc;
+  previewImage.alt = SITE.preview.imageAlt;
 }
 
 function updateProgress() {
@@ -159,8 +180,10 @@ function showNextRiddle() {
 function showSuccess() {
   giftPhoto.src = SITE.giftSrc;
   secretPhoto.src = SITE.photoSrc;
+  previewPanel.hidden = true;
   riddlePanel.hidden = true;
   successPanel.hidden = false;
+  document.title = `${SITE.overline} · ${SITE.successTitle.toLowerCase()}`;
   message.textContent = "";
   form.querySelector("button").disabled = true;
   input.disabled = true;
@@ -201,5 +224,17 @@ form.addEventListener("submit", (event) => {
   input.select();
 });
 
+startButton.addEventListener("click", () => {
+  previewPanel.hidden = true;
+  riddlePanel.hidden = false;
+  fillRiddle();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  window.setTimeout(() => {
+    input.focus();
+  }, 220);
+});
+
 fillRiddle();
 fillSuccess();
+fillPreview();

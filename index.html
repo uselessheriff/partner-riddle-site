@@ -10,7 +10,38 @@
   </head>
   <body>
     <main class="shell">
-      <section class="panel panel-riddle" id="riddle-panel" aria-labelledby="page-title">
+      <section class="panel panel-preview" id="preview-panel" aria-labelledby="preview-title">
+        <div class="screen-head">
+          <p class="overline" id="preview-overline"></p>
+          <div class="ornament" aria-hidden="true">
+            <span></span>
+            <i>♡</i>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="preview-content">
+          <figure class="preview-art">
+            <img id="preview-image" alt="">
+          </figure>
+
+          <h1 id="preview-title"></h1>
+
+          <div class="tiny-ornament" aria-hidden="true">
+            <span></span>
+            <i>♡</i>
+            <span></span>
+          </div>
+
+          <p id="preview-text"></p>
+          <div class="preview-heart" aria-hidden="true">♡</div>
+          <button class="start-button" type="button" id="start-button"></button>
+        </div>
+
+        <div class="pixel-cat" aria-hidden="true"></div>
+      </section>
+
+      <section class="panel panel-riddle" id="riddle-panel" aria-labelledby="page-title" hidden>
         <div class="screen-head">
           <p class="overline" id="site-overline"></p>
           <div class="ornament" aria-hidden="true">
@@ -89,6 +120,7 @@
         </div>
 
         <p class="closing" id="closing-text"></p>
+        <div class="pixel-cat" aria-hidden="true"></div>
       </section>
     </main>
 
