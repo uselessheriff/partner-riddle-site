@@ -52,9 +52,10 @@ const SITE = {
   answerLabel: "Ответ",
   buttonText: "Проверить",
   emptyMessage: "Напиши ответ, который кажется тебе самым точным.",
-  successOverline: "Ты отгадала",
-  successTitle: "Смотри внимательно",
-  successText: "Ты прошла все три загадки. Маленький сладкий сюрприз уже ждёт тебя.",
+  successOverline: "Для тебя",
+  successTitle: "Ты отгадала",
+  successText: "Смотри внимательно",
+  successNote: "Ты прошла все три загадки. Маленький сладкий сюрприз уже ждёт тебя.",
   giftSrc: "assets/gift.jpg",
   giftAlt: "Упакованный сладкий подарок с синей лентой",
   giftCaption: "Вот он, твой маленький сладкий мешочек.",
@@ -118,11 +119,11 @@ function updateProgress() {
 function fillRiddle() {
   const currentRiddle = getCurrentRiddle();
 
-  document.title = SITE.overline;
-  document.querySelector("#site-overline").textContent =
-    `${SITE.overline} · ${currentRiddleIndex + 1} из ${SITE.riddles.length}`;
-  document.querySelector("#page-title").textContent = currentRiddle.title;
-  document.querySelector("#riddle-text").textContent = currentRiddle.riddle;
+  document.title = `${SITE.overline} · ${currentRiddle.title.toLowerCase()}`;
+  document.querySelector("#site-overline").textContent = SITE.overline;
+  document.querySelector("#page-title").textContent = currentRiddle.riddle;
+  document.querySelector("#riddle-text").textContent =
+    `${currentRiddleIndex + 1} из ${SITE.riddles.length}`;
   document.querySelector("#answer-label").textContent = SITE.answerLabel;
   document.querySelector("#submit-button").textContent = SITE.buttonText;
   input.placeholder = SITE.answerLabel;
@@ -136,6 +137,7 @@ function fillSuccess() {
   document.querySelector("#success-overline").textContent = SITE.successOverline;
   document.querySelector("#success-title").textContent = SITE.successTitle;
   document.querySelector("#success-text").textContent = SITE.successText;
+  document.querySelector("#success-note").textContent = SITE.successNote;
   document.querySelector("#gift-caption").textContent = SITE.giftCaption;
   document.querySelector("#photo-caption").textContent = SITE.photoCaption;
   document.querySelector("#closing-text").textContent = SITE.closing;
