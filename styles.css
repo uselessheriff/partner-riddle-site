@@ -62,6 +62,52 @@ input {
   overflow: hidden;
 }
 
+.pixel-owl {
+  --owl-size: 64px;
+  position: absolute;
+  z-index: 3;
+  top: max(12px, env(safe-area-inset-top));
+  left: max(12px, env(safe-area-inset-left));
+  width: var(--owl-size);
+  height: var(--owl-size);
+  pointer-events: none;
+  filter: drop-shadow(0 6px 0 rgba(42, 38, 35, 0.08));
+  animation: owlPerch 3.8s ease-in-out infinite;
+}
+
+.pixel-owl svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.owl-head {
+  transform-box: fill-box;
+  transform-origin: 50% 78%;
+  animation: owlHeadTurn 6.4s ease-in-out infinite;
+}
+
+.owl-wing {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+.owl-wing-left {
+  transform-origin: 18px 34px;
+  animation: owlWingLeft 4.2s ease-in-out infinite;
+}
+
+.owl-wing-right {
+  transform-origin: 46px 34px;
+  animation: owlWingRight 4.2s ease-in-out infinite;
+}
+
+.owl-blink {
+  opacity: 0;
+  animation: owlBlink 4.8s steps(1) infinite;
+}
+
 .panel-preview {
   padding: clamp(22px, 6vw, 36px);
   display: grid;
@@ -567,6 +613,92 @@ figcaption,
   pointer-events: none;
 }
 
+@keyframes owlPerch {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes owlHeadTurn {
+  0%,
+  15%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  23%,
+  38% {
+    transform: rotate(-10deg);
+  }
+
+  46%,
+  62% {
+    transform: rotate(9deg);
+  }
+
+  70%,
+  79% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes owlWingLeft {
+  0%,
+  72%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  77%,
+  83% {
+    transform: rotate(-38deg);
+  }
+
+  88% {
+    transform: rotate(-7deg);
+  }
+}
+
+@keyframes owlWingRight {
+  0%,
+  72%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  77%,
+  83% {
+    transform: rotate(38deg);
+  }
+
+  88% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes owlBlink {
+  0%,
+  12%,
+  16%,
+  54%,
+  58%,
+  100% {
+    opacity: 0;
+  }
+
+  13%,
+  15%,
+  55%,
+  57% {
+    opacity: 1;
+  }
+}
+
 [hidden] {
   display: none !important;
 }
@@ -705,6 +837,12 @@ figcaption,
     top: max(10px, env(safe-area-inset-top));
     right: max(10px, env(safe-area-inset-right));
   }
+
+  .pixel-owl {
+    --owl-size: 58px;
+    top: max(10px, env(safe-area-inset-top));
+    left: max(10px, env(safe-area-inset-left));
+  }
 }
 
 @media (max-width: 360px) {
@@ -728,6 +866,10 @@ figcaption,
 
   .pixel-cat {
     --cat-size: 54px;
+  }
+
+  .pixel-owl {
+    --owl-size: 54px;
   }
 }
 
