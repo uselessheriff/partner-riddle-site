@@ -1,7 +1,7 @@
 source visual truth path: C:\Users\admin\AppData\Local\Temp\codex-clipboard-10996107-0edc-41b3-8831-371860c77b2f.png; C:\Users\admin\AppData\Local\Temp\codex-clipboard-aba51e64-ee7c-446d-a8c9-aba0ffcbefbe.png
 implementation screenshot path during QA, removed before handoff: E:\моя личность\artifacts\partner-riddle-site\qa-390-preview.png; E:\моя личность\artifacts\partner-riddle-site\qa-390-riddle.png; E:\моя личность\artifacts\partner-riddle-site\qa-390-success.png
 viewport: 390x844 and 320x740 mobile, deviceScaleFactor 2
-state: preview start screen, first riddle after Start, and success state after three correct answers
+state: preview start screen, first riddle after Start, and success state after six correct answers; the final pocket hint is a separate screen
 full-view comparison evidence: E:\моя личность\artifacts\partner-riddle-site\qa-comparison-riddle.jpg; E:\моя личность\artifacts\partner-riddle-site\qa-comparison-success.jpg
 focused region comparison evidence: not needed beyond the full-view sheets because the UI is sparse and all relevant text, form controls, progress, image treatment, and final state are readable in the comparison images.
 

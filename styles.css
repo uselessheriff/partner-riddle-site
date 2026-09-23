@@ -372,6 +372,122 @@ button:focus-visible {
   animation: reveal 440ms ease both;
 }
 
+.love-prompt {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  color: var(--rose-dark);
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.love-prompt span {
+  font-size: 1.5rem;
+  line-height: 1;
+  animation: pointerBounce 1.2s ease-in-out infinite;
+}
+
+.love-button {
+  width: min(100%, 342px);
+  justify-self: center;
+  animation: buttonBreath 3.6s ease-in-out infinite;
+}
+
+.panel-final {
+  padding: clamp(22px, 6vw, 34px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+}
+
+.panel-final:not([hidden]) {
+  display: grid;
+  animation: reveal 440ms ease both;
+}
+
+.final-content {
+  align-self: center;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 16px 4px;
+  text-align: center;
+}
+
+.pocket-illustration {
+  width: min(70vw, 220px);
+  height: 190px;
+  display: grid;
+  justify-items: center;
+  align-items: end;
+  position: relative;
+  margin-bottom: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(207, 122, 132, 0.13), rgba(207, 122, 132, 0) 70%);
+}
+
+.pocket-shape {
+  width: 150px;
+  height: 112px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(165, 90, 101, 0.25);
+  border-radius: 13px 13px 34px 34px;
+  background: linear-gradient(145deg, #edc9c2, #d99696);
+  box-shadow: 0 16px 28px rgba(165, 90, 101, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+}
+
+.pocket-shape span {
+  width: 82%;
+  height: 15px;
+  margin-top: 10px;
+  border-top: 1px dashed rgba(255, 253, 251, 0.82);
+}
+
+.pocket-heart {
+  position: absolute;
+  z-index: 2;
+  top: 21px;
+  color: var(--rose-dark);
+  font-size: 4.2rem;
+  line-height: 1;
+  filter: drop-shadow(0 5px 6px rgba(165, 90, 101, 0.18));
+  animation: heartFloat 2.8s ease-in-out infinite;
+}
+
+.final-overline {
+  color: var(--sage);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.final-content h1 {
+  max-width: 12ch;
+  color: var(--rose-dark);
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 1.17;
+  font-weight: 420;
+}
+
+.final-note {
+  max-width: 26ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.back-button {
+  width: min(100%, 300px);
+  margin-top: 8px;
+  background: linear-gradient(180deg, #91a48c, #788f72);
+  box-shadow: 0 12px 28px rgba(120, 143, 114, 0.2);
+}
+
 .success-copy {
   display: grid;
   justify-items: center;
@@ -519,6 +635,17 @@ figcaption,
   }
 }
 
+@keyframes pointerBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
 @keyframes stepChange {
   from {
     opacity: 0.92;
@@ -560,6 +687,11 @@ figcaption,
     padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 22px));
   }
 
+  .panel-final {
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 22px));
+  }
+
   .screen-head {
     padding-inline: 64px;
   }
@@ -583,6 +715,10 @@ figcaption,
   .panel-riddle,
   .panel-preview,
   .panel-success {
+    padding-inline: 18px;
+  }
+
+  .panel-final {
     padding-inline: 18px;
   }
 

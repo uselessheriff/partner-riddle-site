@@ -133,6 +133,9 @@ const message = document.querySelector("#answer-message");
 const riddlePanel = document.querySelector("#riddle-panel");
 const progressLine = document.querySelector("#progress-line");
 const successPanel = document.querySelector("#success-panel");
+const finalPanel = document.querySelector("#final-panel");
+const loveButton = document.querySelector("#love-button");
+const backToPhotosButton = document.querySelector("#back-to-photos");
 const giftPhoto = document.querySelector("#gift-photo");
 const secretPhoto = document.querySelector("#secret-photo");
 
@@ -298,6 +301,20 @@ function showSuccess() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function showFinalScreen() {
+  successPanel.hidden = true;
+  finalPanel.hidden = false;
+  document.title = `${SITE.overline} · ещё одна подсказка`;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function returnToPhotos() {
+  finalPanel.hidden = true;
+  successPanel.hidden = false;
+  document.title = `${SITE.overline} · ${SITE.successTitle.toLowerCase()}`;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function showWrongAnswer() {
   const currentRiddle = getCurrentRiddle();
   const index = Math.min(failedAttempts, currentRiddle.wrongMessages.length - 1);
@@ -347,6 +364,9 @@ startButton.addEventListener("click", () => {
     input.focus();
   }, 220);
 });
+
+loveButton.addEventListener("click", showFinalScreen);
+backToPhotosButton.addEventListener("click", returnToPhotos);
 
 fillRiddle();
 fillSuccess();
