@@ -62,8 +62,8 @@ input {
   overflow: hidden;
 }
 
-.pixel-owl {
-  --owl-size: 64px;
+.animated-owl {
+  --owl-size: 72px;
   position: absolute;
   z-index: 3;
   top: max(12px, env(safe-area-inset-top));
@@ -75,7 +75,7 @@ input {
   animation: owlPerch 3.8s ease-in-out infinite;
 }
 
-.pixel-owl svg {
+.animated-owl svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -83,23 +83,20 @@ input {
 }
 
 .owl-head {
-  transform-box: fill-box;
-  transform-origin: 50% 78%;
+  transform-box: view-box;
+  transform-origin: 48px 44px;
   animation: owlHeadTurn 6.4s ease-in-out infinite;
 }
 
-.owl-wing {
-  transform-box: view-box;
-  transform-origin: center;
-}
-
 .owl-wing-left {
-  transform-origin: 18px 34px;
+  transform-box: view-box;
+  transform-origin: 30px 54px;
   animation: owlWingLeft 4.2s ease-in-out infinite;
 }
 
 .owl-wing-right {
-  transform-origin: 46px 34px;
+  transform-box: view-box;
+  transform-origin: 66px 54px;
   animation: owlWingRight 4.2s ease-in-out infinite;
 }
 
@@ -838,8 +835,8 @@ figcaption,
     right: max(10px, env(safe-area-inset-right));
   }
 
-  .pixel-owl {
-    --owl-size: 58px;
+  .animated-owl {
+    --owl-size: 64px;
     top: max(10px, env(safe-area-inset-top));
     left: max(10px, env(safe-area-inset-left));
   }
@@ -868,8 +865,8 @@ figcaption,
     --cat-size: 54px;
   }
 
-  .pixel-owl {
-    --owl-size: 54px;
+  .animated-owl {
+    --owl-size: 60px;
   }
 }
 
