@@ -9,7 +9,7 @@ focused region comparison evidence: not needed beyond the full-view sheets becau
 - No actionable P0/P1/P2 findings remain.
 
 **Required Fidelity Surfaces**
-- Fonts and typography: implementation uses a light system sans serif with low-weight headings and centered hierarchy matching the airy reference. Copy differs intentionally because the live three-riddle flow uses personal questions instead of placeholder copy.
+- Fonts and typography: implementation uses a light system sans serif with low-weight headings and centered hierarchy matching the airy reference. Copy differs intentionally because the live six-riddle flow uses personal questions instead of placeholder copy.
 - Spacing and layout rhythm: mobile page preserves the reference rhythm: compact top title/ornament/progress, large breathing room, centered riddle, input and rose button near the lower area. Success state keeps the same centered rhythm while accommodating real photos.
 - Colors and visual tokens: true warm white background, rose accent, sage line work, soft gray borders, and muted body text match the reference direction.
 - Image quality and asset fidelity: preview uses the generated love-letter asset extracted from the concept. Success screen intentionally uses real optimized gift/location photos instead of the reference placeholder. Pixel cat is a project-specific animated PNG sprite and appears in the top-right corner on all screens.

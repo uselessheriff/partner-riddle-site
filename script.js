@@ -2,8 +2,8 @@ const SITE = {
   overline: "Для тебя",
   preview: {
     overline: "Для тебя",
-    title: "Маленький сладкий след",
-    text: "Открой, когда будешь готова",
+    title: "Для тебя кое-что новенькое",
+    text: "Добавилось несколько загадок и кое-что ещё… Готова узнать, какой сюрприз ждёт тебя?",
     buttonText: "Начать",
     imageSrc: "assets/preview-letter.jpg",
     imageAlt: "Письмо с сердцем и нежными веточками"
@@ -13,28 +13,40 @@ const SITE = {
       title: "Загадка первая",
       riddle: "Что последнее я готовил для своей китюськи?",
       acceptedAnswers: [
-        "киндер",
-        "киндер пингви",
-        "киндер-пингви",
-        "киндер пингвин",
-        "kinder",
-        "kinder pingui",
-        "kinder pingvi"
+        "свинина с перцем и морковью рис",
+        "свинина с перцем и морковью с рисом",
+        "свинина с перцем, морковью и рисом",
+        "рис со свининой с перцем и морковью",
+        "свинина с овощами и рисом",
+        "свинина с рисом",
+        "рис со свининой",
+        "свинина с перцем",
+        "свинина с морковью",
+        "свинина с овощами",
+        "мясо с рисом",
+        "рис с мясом",
+        "свинина"
+      ],
+      answerGroups: [
+        ["свинина", "свининой", "свинину", "свинины", "свинья", "свиньей", "мясо", "мясом"],
+        ["рис", "рисом", "риса"],
+        ["перец", "перцем", "перца", "перчиком"],
+        ["морковь", "морковью", "моркови", "морковка", "морковкой"]
       ],
       wrongMessages: [
-        "Пока не то. Вспомни вкусную штуку, которую я делал для тебя последней.",
-        "Почти. Это было сладкое и очень узнаваемое.",
-        "Еще попытка. Ответ можно написать коротко."
+        "Пока не то. Вспомни последнее блюдо, которое я готовил для тебя.",
+        "Почти. Там были мясо, овощи и гарнир.",
+        "Ещё попытка. Можно ответить совсем коротко."
       ]
     },
     {
       title: "Загадка вторая",
       riddle: "36-е слово в моём последнем стишке тебе?",
-      acceptedAnswers: ["люблю"],
+      acceptedAnswers: ["мы"],
       wrongMessages: [
-        "Пока не то. Это слово в стишке было самым важным.",
-        "Подумай про то, что я чаще всего хочу тебе сказать.",
-        "Еще попытка. Регистр не важен."
+        "Пока не то. Это слово про нас двоих.",
+        "Подумай, кто мы друг для друга.",
+        "Ещё попытка. Регистр не важен."
       ]
     },
     {
@@ -55,6 +67,45 @@ const SITE = {
         "Почти. Тут можно ошибиться в написании, я засчитаю близкие варианты.",
         "Еще попытка. Главное — звучание."
       ]
+    },
+    {
+      title: "Загадка четвёртая",
+      riddle: "На кого я похож?",
+      acceptedAnswers: [
+        "добрыня никитич", "добрыня никитичь", "добрыня никитыч",
+        "добрыня-никитич", "добриня никитич", "добрыня", "никитич",
+        "dobrynya nikitich", "dobrinya nikitich", "nikitich",
+        "леонардо дикаприо", "леонардо ди каприо", "леонардо ди-каприо",
+        "леонардо дикапирио", "леонардо дикаприа", "леонардо дикприо",
+        "дикаприо", "ди каприо", "ди-каприо", "дикапирио", "дикприо",
+        "леонардо", "leonardo dicaprio", "leonardo di caprio", "dicaprio"
+      ],
+      allowNameVariant: true,
+      wrongMessages: [
+        "Подумай о двух очень разных, но одинаково легендарных вариантах.",
+        "Один герой — богатырь, другой — голливудская звезда.",
+        "Вспомни Добрыню Никитича или Леонардо ДиКаприо."
+      ]
+    },
+    {
+      title: "Загадка пятая",
+      riddle: "Какое 25-е слово на картине?",
+      acceptedAnswers: ["сексуальный"],
+      wrongMessages: [
+        "Посчитай слова на картине ещё раз.",
+        "Подсказка: это слово описывает особое очарование.",
+        "Ищи слово про притягательность."
+      ]
+    },
+    {
+      title: "Загадка шестая",
+      riddle: "Закончи фразу: «Вот какая вот хуйня …»",
+      acceptedAnswers: ["собачка", "собачька", "сабачка", "сабачька"],
+      wrongMessages: [
+        "Ну ты же знаешь, кто там должен быть.",
+        "Маленькая подсказка: хвостатая и очень милая.",
+        "Это слово про маленькую пушистую подружку."
+      ]
     }
   ],
   answerLabel: "Ответ",
@@ -63,14 +114,14 @@ const SITE = {
   successOverline: "Для тебя",
   successTitle: "Ты отгадала",
   successText: "Смотри внимательно",
-  successNote: "Ты прошла все три загадки. Маленький сладкий сюрприз уже ждёт тебя.",
+  successNote: "Ты прошла все шесть загадок. Сладкий сюрприз уже ждёт тебя.",
   giftSrc: "assets/gift.jpg",
   giftAlt: "Упакованный сладкий подарок с синей лентой",
   giftCaption: "Вот он, твой маленький сладкий мешочек.",
-  photoSrc: "assets/secret-location.jpg",
-  photoAlt: "Фото места, где спрятан сладкий сюрприз",
-  photoCaption: "Он спрятан в пакете с пряжей.",
-  closing: "С праздником, любимая."
+  photoSrc: "assets/surprise-closet.jpg",
+  photoAlt: "Шкаф с одеждой; синее сердечко отмечает место сюрприза",
+  photoCaption: "Ищи там, где я нарисовал для тебя синее сердечко.",
+  closing: "Сладкий вечер дома и кое-что мягкое, чему мы вместе придумаем форму, уже ждут нас. С праздником, любимая."
 };
 
 const previewPanel = document.querySelector("#preview-panel");
@@ -102,16 +153,66 @@ function compactAnswer(value) {
   return normalizeAnswer(value).replace(/\s/g, "");
 }
 
-function isAcceptedAnswer(answer, acceptedAnswers) {
+function editDistanceAtMostOne(left, right) {
+  if (Math.abs(left.length - right.length) > 1) return false;
+
+  let leftIndex = 0;
+  let rightIndex = 0;
+  let differences = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] === right[rightIndex]) {
+      leftIndex += 1;
+      rightIndex += 1;
+      continue;
+    }
+
+    differences += 1;
+    if (differences > 1) return false;
+    if (left.length > right.length) leftIndex += 1;
+    else if (right.length > left.length) rightIndex += 1;
+    else {
+      leftIndex += 1;
+      rightIndex += 1;
+    }
+  }
+
+  if (leftIndex < left.length || rightIndex < right.length) differences += 1;
+  return differences <= 1;
+}
+
+function isAcceptedAnswer(answer, acceptedAnswers, allowNameVariant = false, answerGroups = []) {
   const normalizedAnswer = normalizeAnswer(answer);
   const compactedAnswer = compactAnswer(answer);
 
-  return acceptedAnswers.some((acceptedAnswer) => {
-    return (
+  const exactMatch = acceptedAnswers.some((acceptedAnswer) => (
       normalizeAnswer(acceptedAnswer) === normalizedAnswer ||
       compactAnswer(acceptedAnswer) === compactedAnswer
+  ));
+  if (exactMatch) return true;
+
+  if (answerGroups.length) {
+    const answerWords = normalizedAnswer.split(" ");
+    const hasIngredient = (group) => group.some((ingredient) =>
+      answerWords.includes(normalizeAnswer(ingredient))
     );
-  });
+
+    if (hasIngredient(answerGroups[0]) && answerGroups.slice(1).some(hasIngredient)) {
+      return true;
+    }
+  }
+
+  if (!allowNameVariant) return false;
+
+  const answerWords = normalizedAnswer.split(" ");
+  const acceptedWords = acceptedAnswers.flatMap((acceptedAnswer) =>
+    normalizeAnswer(acceptedAnswer).split(" ")
+  );
+
+  return answerWords.some((answerWord) => acceptedWords.some((acceptedWord) =>
+    answerWord.length >= 5 && acceptedWord.length >= 5 &&
+    editDistanceAtMostOne(answerWord, acceptedWord)
+  ));
 }
 
 function getCurrentRiddle() {
@@ -131,7 +232,13 @@ function fillPreview() {
 function updateProgress() {
   const steps = [...progressLine.querySelectorAll("span")];
 
-  steps.forEach((step, index) => {
+  if (steps.length !== SITE.riddles.length) {
+    progressLine.replaceChildren(...SITE.riddles.map(() => document.createElement("span")));
+  }
+
+  const currentSteps = [...progressLine.querySelectorAll("span")];
+
+  currentSteps.forEach((step, index) => {
     step.classList.toggle("is-complete", index < currentRiddleIndex);
     step.classList.toggle("is-active", index === currentRiddleIndex);
   });
@@ -148,6 +255,7 @@ function fillRiddle() {
   document.querySelector("#answer-label").textContent = SITE.answerLabel;
   document.querySelector("#submit-button").textContent = SITE.buttonText;
   input.placeholder = SITE.answerLabel;
+  progressLine.style.setProperty("--step-count", SITE.riddles.length);
   input.value = "";
   message.textContent = "";
   failedAttempts = 0;
@@ -210,7 +318,12 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  if (isAcceptedAnswer(answer, currentRiddle.acceptedAnswers)) {
+  if (isAcceptedAnswer(
+    answer,
+    currentRiddle.acceptedAnswers,
+    currentRiddle.allowNameVariant,
+    currentRiddle.answerGroups
+  )) {
     if (currentRiddleIndex < SITE.riddles.length - 1) {
       showNextRiddle();
       return;
